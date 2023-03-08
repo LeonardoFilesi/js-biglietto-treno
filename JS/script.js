@@ -28,18 +28,13 @@ const underageDiscount = (0.80);
 const over65Discount = (0.60);
 
 // Controllare le risposte dell'utente
-if (isNaN(travelKm)) {
-    document.getElementById("error").innerHTML = "Errore. Ricaricare la pagina e compilare il form con dei numeri"
-}
-if (isNaN(userAge)) {
-    document.getElementById("error").innerHTML = "Errore. Ricaricare la pagina e compilare il form con dei numeri"
-}
+
 
 // Prezzo finale per un minorenne
 let finalPrice = "";
 if (userAge < 18) {
     finalPrice = (travelKm * priceKm * underageDiscount).toFixed(2);
-} else if (userAge > 65) {
+} else if (userAge >= 65) {
     finalPrice = (travelKm * priceKm * over65Discount).toFixed(2);
 } else {
     finalPrice = (travelKm * priceKm).toFixed(2);
@@ -47,4 +42,10 @@ if (userAge < 18) {
 console.log(finalPrice)
 
 // Stampare prezzo finale
-document.getElementById("pricedisplay").innerHTML = `Grazie utente. Il prezzo del suo biglietto è ${finalPrice}£`;
+if (isNaN(travelKm)) {
+    document.getElementById("error").innerHTML = "Errore. Ricaricare la pagina e compilare il form con dei numeri"
+} else if (isNaN(userAge)) {
+    document.getElementById("error").innerHTML = "Errore. Ricaricare la pagina e compilare il form con dei numeri"
+} else {
+    document.getElementById("pricedisplay").innerHTML = `Grazie utente. Il prezzo del suo biglietto è ${finalPrice}£`;
+}
