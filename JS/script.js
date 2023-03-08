@@ -41,7 +41,7 @@ if (userAge < 18) {
 }
 console.log(finalPrice)
 
-// Stampare prezzo finale
+// Stampare prezzo finale con controllo risposte utente
 if (isNaN(travelKm)) {
     document.getElementById("error").innerHTML = "Errore. Ricaricare la pagina e compilare il form con dei numeri"
 } else if (isNaN(userAge)) {
